@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MediCare | Online Medical Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <span>📞 24x7 Support: 1800-123-4567</span>
+            <span>Free shipping on orders over ₹500</span>
+        </div>
+        <div class="nav-container">
+            <div class="logo">
+                <span style="font-size: 2rem;">⚕️</span> MediCare
+            </div>
+            
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" id="searchInput" placeholder="Search medicines, health products...">
+            </div>
+
+            <div class="nav-links">
+                <div class="nav-item" onclick="openModal('prescriptionModal')">📄 Upload Prescription</div>
+                <div class="nav-item" onclick="openModal('cartModal')">
+                    🛒 Cart <span id="cartCount" class="badge hidden">0</span>
+                </div>
+                <div id="authSection" class="auth-container"></div>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="categories" id="categoryContainer">
+            <div class="cat-pill active" onclick="filterCategory('all', this)">All</div>
+            <div class="cat-pill" onclick="filterCategory('Tablets', this)">💊 Tablets</div>
+            <div class="cat-pill" onclick="filterCategory('Syrups', this)">🥤 Syrups</div>
+            <div class="cat-pill" onclick="filterCategory('Devices', this)">🩺 Devices</div>
+            <div class="cat-pill" onclick="filterCategory('Supplements', this)">💪 Supplements</div>
+            <div class="cat-pill" onclick="filterCategory('Personal Care', this)">🧴 Personal Care</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title" id="sectionTitle">Featured Products</h2>
+        <div class="products-grid" id="productsGrid"></div>
+    </main>
+
+    <!-- AUTH MODAL -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('authModal')">&times;</span>
+            <h2 id="authTitle" style="margin-bottom: 1.5rem; color: var(--primary);">Login</h2>
+            
+            <form id="authForm" onsubmit="handleAuth(event)">
+                <div class="form-group" id="nameGroup" style="display:none;">
+                    <label>Full Name</label>
+                    <input type="text" id="authName" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="authEmail" required placeholder="user@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="authPass" required placeholder="••••••">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;" id="authSubmitBtn">Login</button>
+            </form>
+            
+            <p style="margin-top: 1rem; text-align: center; font-size: 0.9rem;">
+                <span id="authToggleText">Don't have an account?</span> 
+                <a href="#" style="color: var(--primary);" onclick="toggleAuthMode()">Click here</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- PRESCRIPTION MODAL -->
+    <div class="modal" id="prescriptionModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('prescriptionModal')">&times;</span>
+            <h2 style="color: var(--primary);">Upload Prescription</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">Upload your doctor's prescription.</p>
+            
+            <div style="border: 2px dashed var(--primary); padding: 2rem; text-align: center; border-radius: 10px; margin-bottom: 1.5rem; background: #e3f2fd;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📁</div>
+                <p><strong>Click to Upload</strong></p>
+                <input type="file" id="prescriptionFile" style="display: none;">
+                <button class="btn btn-primary" style="margin-top: 1rem;" onclick="document.getElementById('prescriptionFile').click()">Select File</button>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="submitPrescription()">Submit</button>
+        </div>
+    </div>
+
+    <!-- CART MODAL -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content" style="max-width: 600px;">
+            <span class="close-modal" onclick="closeModal('cartModal')">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cartItems" style="max-height: 400px; overflow-y: auto; margin: 1.5rem 0;"></div>
+            <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; border-top: 2px solid var(--border); padding-top: 1rem;">
+                <span>Total:</span>
+                <span id="cartTotal">₹0.00</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
