@@ -3,7 +3,7 @@
     { id: 1, name: "Paracetamol 500mg", type: "Tablets", price: 25, desc: "Effective for fever reduction.", usage: "1 tablet after food", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80", rx: false },
     { id: 2, name: "Amoxicillin 250mg", type: "Tablets", price: 120, desc: "Antibiotic for bacterial infections.", usage: "3 times a day", image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=600&q=80", rx: true },
     { id: 3, name: "Herbal Cough Syrup", type: "Syrups", price: 85, desc: "Natural relief from cough.", usage: "10ml before sleep", image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=600&q=80", rx: false },
-    { id: 4, name: "Digital Thermometer", type: "Devices", price: 350, desc: "Fast and accurate temperature.", usage: "Oral/Underarm", image: "https://images.unsplash.com/photo-1583912267550-d974311a7939?auto=format&fit=crop&w=600&q=80", rx: false },
+    { id: 4, name: "Digital Thermometer", type: "Devices", price: 350, desc: "Fast and accurate temperature.", usage: "Oral/Underarm", image: "assets/ibuprofin.jpg", rx: false },
     { id: 5, name: "Multivitamin Complex", type: "Supplements", price: 450, desc: "Daily immunity booster.", usage: "1 tablet daily", image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80", rx: false },
     { id: 6, name: "BP Monitor", type: "Devices", price: 1200, desc: "Automatic blood pressure monitor.", usage: "Wrap around arm", image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=600&q=80", rx: false },
 ];
